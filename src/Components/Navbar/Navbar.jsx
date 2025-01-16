@@ -1,8 +1,10 @@
 import { NavLink } from "react-router-dom";
+import useAuth from "../../Hooks/useAuth";
 
 const Navbar = () => {
+    const { user } = useAuth();
     return (
-        <div className="bg-base-300 backdrop-blur-md fixed z-10 w-full">
+        <div className="bg-secondary/20 backdrop-blur-md fixed z-10 w-full">
             <div className="navbar w-11/12 mx-auto">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -43,8 +45,9 @@ const Navbar = () => {
                         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                             <div className="w-10 rounded-full bg-white">
                                 <img
+                                    referrerPolicy="no referrer"
                                     alt="Tailwind CSS Navbar component"
-                                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                                    src={user?.photoURL} />
                             </div>
                         </div>
                         <ul
