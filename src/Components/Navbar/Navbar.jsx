@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 
 const Navbar = () => {
-    const { user } = useAuth();
+    const { user, logOut } = useAuth();
     return (
         <div className="bg-secondary/20 backdrop-blur-md fixed z-10 w-full">
             <div className="navbar w-11/12 mx-auto">
@@ -54,7 +54,7 @@ const Navbar = () => {
                             tabIndex={0}
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-4 shadow flex flex-col gap-3">
                             <NavLink to={'/dashboard'}><button>Dashboard</button></NavLink>
-                            <button>Log Out</button>
+                            <button onClick={() => logOut()}>Log Out</button>
                         </ul>
                     </div>
                 </div>

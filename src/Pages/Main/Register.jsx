@@ -4,10 +4,12 @@ import { Link, useNavigate } from "react-router-dom";
 import registerImg from '../../assets/Sign-up.png'
 import { useForm } from "react-hook-form";
 import { FaGoogle } from "react-icons/fa";
+import usePublicAxios from "../../Hooks/usePublicAxios";
 
 const Register = () => {
 
-    const { googleSignIn, setUser, updateUserProfile, createUser } = useAuth();
+    const { googleSignIn, updateUserProfile, createUser } = useAuth();
+    const axiosPublic = usePublicAxios()
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const navigate = useNavigate();
 
@@ -21,8 +23,21 @@ const Register = () => {
                 console.log(loggedUser);
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
-                        reset();
-                        navigate('/')
+                        // create user entry in the database
+                        const userInfo = {
+                            name: data.name,
+                            email: data.email
+                        }
+                        axiosPublic.post('/users', userInfo)
+                            .then(res => {
+                                if (res.data.insertedId) {
+                                    reset();
+                                    toast.success("User register successfully.")
+                                    navigate('/');
+                                }
+                            })
+
+
                     })
                     .catch(error => console.log(error))
             })
@@ -30,14 +45,17 @@ const Register = () => {
 
     const googleLogInBtn = () => {
         googleSignIn()
-            .then((result) => {
-                setUser(result.user)
-                toast.success("Log In Success");
-                navigate("/")
-            }).catch((error) => {
-                // Handle Errors here.
-                const errorCode = error.code
-                toast.error(errorCode)
+            .then(result => {
+                toast.success("log in success")
+                const userInfo = {
+                    email: result.user?.email,
+                    name: result.user?.displayName
+                }
+                axiosPublic.post('/users', userInfo)
+                    .then(res => {
+                        console.log(res.data);
+                        navigate('/');
+                    })
             })
     }
     return (

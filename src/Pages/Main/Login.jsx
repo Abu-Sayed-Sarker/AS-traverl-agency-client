@@ -3,10 +3,12 @@ import { FaGoogle } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import loginImg from '../../assets/login.png'
+import usePublicAxios from "../../Hooks/usePublicAxios";
 
 const Login = () => {
 
     const { signIn, googleSignIn, setUser } = useAuth();
+    const axiosPublic = usePublicAxios();
 
     const navigate = useNavigate()
 
@@ -40,14 +42,17 @@ const Login = () => {
 
     const googleLogInBtn = () => {
         googleSignIn()
-            .then((result) => {
-                setUser(result.user)
-                toast.success("Log In Success");
-                navigate("/")
-            }).catch((error) => {
-                // Handle Errors here.
-                const errorCode = error.code
-                toast.error(errorCode)
+            .then(result => {
+                toast.success("log in success")
+                const userInfo = {
+                    email: result.user?.email,
+                    name: result.user?.displayName
+                }
+                axiosPublic.post('/users', userInfo)
+                    .then(res => {
+                        console.log(res.data);
+                        navigate('/');
+                    })
             })
     }
     return (

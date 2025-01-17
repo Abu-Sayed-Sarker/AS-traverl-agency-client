@@ -29,8 +29,9 @@ const DashNavbar = () => {
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
                     <ul className="menu bg-secondary/20 backdrop-blur-3xl min-h-screen w-56">
-                        <li><NavLink to={'/dashboard'}>Home</NavLink></li>
+                        <li><NavLink to={'/dashboard'}>Manage  profile</NavLink></li>
                         <li><NavLink to={'/dashboard/mybooking'}>Home</NavLink></li>
+                        <li><NavLink to={'/'}>Home</NavLink></li>
                     </ul>
 
                 </div>
