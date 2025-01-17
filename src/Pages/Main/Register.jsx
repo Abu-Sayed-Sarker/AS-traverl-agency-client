@@ -26,7 +26,8 @@ const Register = () => {
                         // create user entry in the database
                         const userInfo = {
                             name: data.name,
-                            email: data.email
+                            email: data.email,
+                            photo: data.photoURL
                         }
                         axiosPublic.post('/users', userInfo)
                             .then(res => {
@@ -49,7 +50,8 @@ const Register = () => {
                 toast.success("log in success")
                 const userInfo = {
                     email: result.user?.email,
-                    name: result.user?.displayName
+                    name: result.user?.displayName,
+                    photo: result.user?.photoURL
                 }
                 axiosPublic.post('/users', userInfo)
                     .then(res => {

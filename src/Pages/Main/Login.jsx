@@ -46,7 +46,8 @@ const Login = () => {
                 toast.success("log in success")
                 const userInfo = {
                     email: result.user?.email,
-                    name: result.user?.displayName
+                    name: result.user?.displayName,
+                    photo: result.user?.photoURL
                 }
                 axiosPublic.post('/users', userInfo)
                     .then(res => {

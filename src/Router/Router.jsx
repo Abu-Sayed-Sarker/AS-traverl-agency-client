@@ -6,6 +6,7 @@ import Register from "../Pages/Main/Register";
 import Home from "../Pages/Main/Home/Home";
 import ManageProfile from "../Pages/Dashbord/ManageProfile";
 import MyBooking from "../Pages/Dashbord/MyBooking";
+import AddTour from "../Pages/Dashbord/AddTour";
 
 const Router = createBrowserRouter([
     {
@@ -39,6 +40,10 @@ const Router = createBrowserRouter([
             {
                 path: '/dashboard/mybooking',
                 element: <MyBooking></MyBooking>
+            },
+            {
+                path: '/dashboard/addpackage',
+                element: <AddTour></AddTour>
             },
         ]
     }
