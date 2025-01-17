@@ -4,7 +4,7 @@ import DashNavbar from "../Components/DashbordNavbar/DashNavbar";
 const Dashboard = () => {
     return (
         <div>
-            <div className="flex flex-col lg:flex-row mt-10 w-11/12 mx-auto lg:gap-6">
+            <div className="flex flex-col lg:flex-row mt-10 w-11/12 mx-auto lg:gap-6 min-h-screen">
                 <DashNavbar></DashNavbar>
                 <div className="lg:flex-1">
                     <Outlet></Outlet>

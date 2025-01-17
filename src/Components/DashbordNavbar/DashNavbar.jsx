@@ -26,12 +26,13 @@ const DashNavbar = () => {
                     </label>
                 </div>
 
-                <div className="drawer-side">
+                <div className="drawer-side bg-secondary/20 rounded-tl-3xl">
                     <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
-                    <ul className="menu bg-secondary/20 backdrop-blur-3xl space-y-5 min-h-screen w-56">
-                        <li><NavLink to={'/dashboard'}>Manage  profile</NavLink></li>
-                        <li><NavLink to={'/dashboard/addpackage'}>Add Packages</NavLink></li>
-                        <li><NavLink to={'/'}>Home</NavLink></li>
+                    <h1 className="text-xl uppercase font-bold p-5 pb-0">AS <span className="text-primary">Travel</span></h1>
+                    <ul className="backdrop-blur-3xl p-5 w-56">
+                        <NavLink to={'/dashboard'}><li className="hover:bg-secondary p-3 rounded-2xl">Manage  profile</li></NavLink>
+                        <NavLink to={'/dashboard/addpackage'}><li className="hover:bg-secondary p-3 rounded-2xl">Add Packages</li></NavLink>
+                        <NavLink to={'/'}><li className="hover:bg-secondary p-3 rounded-2xl">Home</li></NavLink>
                     </ul>
 
                 </div>

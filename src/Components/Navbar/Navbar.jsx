@@ -50,12 +50,14 @@ const Navbar = () => {
                                     src={user?.photoURL} />
                             </div>
                         </div>
-                        <ul
+                        {user && <ul
                             tabIndex={0}
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-4 shadow flex flex-col gap-3">
-                            <NavLink to={'/dashboard'}><button>Dashboard</button></NavLink>
-                            <button onClick={() => logOut()}>Log Out</button>
-                        </ul>
+                            <li>{user.displayName}</li>
+                            <li>{user.email}</li>
+                            <NavLink to={'/dashboard'}><li className="font-semibold hover:bg-secondary px-2 py-1 rounded-md">Dashboard</li></NavLink>
+                            <button className="font-semibold bg-secondary/50 hover:bg-secondary px-2 py-1 rounded-md" onClick={() => logOut()}>Log Out</button>
+                        </ul>}
                     </div>
                 </div>
             </div>
