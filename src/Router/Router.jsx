@@ -7,6 +7,7 @@ import Home from "../Pages/Main/Home/Home";
 import ManageProfile from "../Pages/Dashbord/ManageProfile";
 import MyBooking from "../Pages/Dashbord/MyBooking";
 import AddTour from "../Pages/Dashbord/AddTour";
+import AboutUs from "../Pages/Main/About/AboutUs";
 
 
 const Router = createBrowserRouter([
@@ -18,6 +19,10 @@ const Router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>
+            },
+            {
+                path: 'aboutus',
+                element: <AboutUs></AboutUs>
             },
             {
                 path: 'login',

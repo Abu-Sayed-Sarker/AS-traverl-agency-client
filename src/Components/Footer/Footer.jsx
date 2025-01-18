@@ -17,13 +17,13 @@ const Footer = () => {
                 <nav>
                     <h6 className="footer-title">Social</h6>
                     <div className="grid grid-flow-col gap-4">
-                        <a className="text-2xl">
+                        <a href="https://github.com/Abu-Sayed-Sarker" target="blank" className="text-2xl">
                             <FaGithub />
                         </a>
-                        <a className="text-2xl">
+                        <a href="https://www.facebook.com/profile.php?id=100035598160323" target="blank" className="text-2xl">
                             <RiFacebookCircleFill />
                         </a>
-                        <a className="text-2xl">
+                        <a href="https://www.linkedin.com/in/abu-sayed-32a591342" target="blank" className="text-2xl">
                             <FaLinkedinIn />
                         </a>
                     </div>
