@@ -8,6 +8,7 @@ import ManageProfile from "../Pages/Dashbord/ManageProfile";
 import MyBooking from "../Pages/Dashbord/MyBooking";
 import AddTour from "../Pages/Dashbord/AddTour";
 
+
 const Router = createBrowserRouter([
     {
         path: '/',

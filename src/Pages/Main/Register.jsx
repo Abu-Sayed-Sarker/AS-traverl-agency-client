@@ -1,6 +1,6 @@
 import toast from "react-hot-toast";
 import useAuth from "../../Hooks/useAuth";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import registerImg from '../../assets/Sign-up.png'
 import { useForm } from "react-hook-form";
 import { FaGoogle } from "react-icons/fa";
@@ -12,6 +12,7 @@ const Register = () => {
     const axiosPublic = usePublicAxios()
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const navigate = useNavigate();
+    const location = useLocation()
 
 
 
@@ -27,14 +28,15 @@ const Register = () => {
                         const userInfo = {
                             name: data.name,
                             email: data.email,
-                            photo: data.photoURL
+                            photo: data.photoURL,
+                            role: 'Tourist'
                         }
                         axiosPublic.post('/users', userInfo)
                             .then(res => {
                                 if (res.data.insertedId) {
                                     reset();
                                     toast.success("User register successfully.")
-                                    navigate('/');
+                                    navigate(location.state.from.pathnam || '/')
                                 }
                             })
 
@@ -51,12 +53,13 @@ const Register = () => {
                 const userInfo = {
                     email: result.user?.email,
                     name: result.user?.displayName,
-                    photo: result.user?.photoURL
+                    photo: result.user?.photoURL,
+                    role: 'Tourist'
                 }
                 axiosPublic.post('/users', userInfo)
                     .then(res => {
                         console.log(res.data);
-                        navigate('/');
+                        navigate(location.state.from.pathnam || '/')
                     })
             })
     }

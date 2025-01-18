@@ -1,6 +1,6 @@
 import toast from "react-hot-toast";
 import { FaGoogle } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import loginImg from '../../assets/login.png'
 import usePublicAxios from "../../Hooks/usePublicAxios";
@@ -11,6 +11,9 @@ const Login = () => {
     const axiosPublic = usePublicAxios();
 
     const navigate = useNavigate()
+
+    const location = useLocation()
+
 
     const handleLoginSubmission = e => {
         e.preventDefault()
@@ -25,7 +28,7 @@ const Login = () => {
                 setUser(user)
                 e.target.reset();
                 toast.success("Log In Success");
-                navigate("/")
+                navigate(location.state.from.pathnam || '/')
 
             })
             .catch((error) => {
@@ -47,12 +50,13 @@ const Login = () => {
                 const userInfo = {
                     email: result.user?.email,
                     name: result.user?.displayName,
-                    photo: result.user?.photoURL
+                    photo: result.user?.photoURL,
+                    role: 'Tourist'
                 }
                 axiosPublic.post('/users', userInfo)
                     .then(res => {
                         console.log(res.data);
-                        navigate('/');
+                        navigate(location.state.from.pathnam || '/')
                     })
             })
     }

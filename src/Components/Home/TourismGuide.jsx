@@ -21,7 +21,7 @@ const TourismGuide = () => {
 
     return (
         <div className="mt-20 w-11/12 mx-auto">
-            <h1 className="lg:text-5xl md:text-3xl text-2xl font-bold">Tourism and Travel Guide Section</h1>
+            <h1 className="lg:text-5xl md:text-3xl text-2xl font-bold">Tourism and Travel Guide</h1>
 
             <p className="lg:text-xl">Our tourism and Travel Guide Heare...</p>
             <div className="mt-10">
