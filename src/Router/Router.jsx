@@ -10,6 +10,7 @@ import AddTour from "../Pages/Dashbord/AddTour";
 import AboutUs from "../Pages/Main/About/AboutUs";
 import PrivetRouter from "./PrivetRouter";
 import PackageDatels from "../Pages/Main/Home/PackageDatels";
+import Trips from "../Pages/Main/Home/Trips";
 
 
 const Router = createBrowserRouter([
@@ -37,6 +38,10 @@ const Router = createBrowserRouter([
             {
                 path: 'datels/:id',
                 element: <PrivetRouter><PackageDatels></PackageDatels></PrivetRouter>
+            },
+            {
+                path: 'trips',
+                element: <Trips></Trips>
             },
         ]
     },
