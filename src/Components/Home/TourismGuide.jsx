@@ -16,7 +16,7 @@ const TourismGuide = () => {
             return res.data;
         }
     })
-    console.log(packages);
+
 
 
     return (

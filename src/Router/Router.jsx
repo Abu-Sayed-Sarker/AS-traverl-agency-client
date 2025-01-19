@@ -8,6 +8,8 @@ import ManageProfile from "../Pages/Dashbord/ManageProfile";
 import MyBooking from "../Pages/Dashbord/MyBooking";
 import AddTour from "../Pages/Dashbord/AddTour";
 import AboutUs from "../Pages/Main/About/AboutUs";
+import PrivetRouter from "./PrivetRouter";
+import PackageDatels from "../Pages/Main/Home/PackageDatels";
 
 
 const Router = createBrowserRouter([
@@ -31,6 +33,10 @@ const Router = createBrowserRouter([
             {
                 path: 'register',
                 element: <Register></Register>
+            },
+            {
+                path: 'datels/:id',
+                element: <PrivetRouter><PackageDatels></PackageDatels></PrivetRouter>
             },
         ]
     },

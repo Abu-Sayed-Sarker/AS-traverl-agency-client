@@ -12,7 +12,7 @@ const Register = () => {
     const axiosPublic = usePublicAxios()
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const navigate = useNavigate();
-    const location = useLocation()
+    const location = useLocation();
 
 
 
