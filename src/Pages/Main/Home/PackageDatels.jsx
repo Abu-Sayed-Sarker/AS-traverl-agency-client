@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import usePublicAxios from "../../../Hooks/usePublicAxios";
 import { MdTour } from "react-icons/md";
 import { TbCoinTakaFilled } from "react-icons/tb";
@@ -143,6 +143,7 @@ const PackageDatels = () => {
                             </div>)
                         }
                     </div>
+                    <Link to={`/booking/${id}`}> <button className="btn bg-secondary/50 hover:bg-secondary">Booking Now</button> </Link>
                 </div>
             </div>
         </div>

@@ -11,13 +11,14 @@ import AboutUs from "../Pages/Main/About/AboutUs";
 import PrivetRouter from "./PrivetRouter";
 import PackageDatels from "../Pages/Main/Home/PackageDatels";
 import Trips from "../Pages/Main/Home/Trips";
+import BookingNow from "../Pages/Main/Home/BookingNow";
 
 
 const Router = createBrowserRouter([
     {
         path: '/',
         element: <MainLayout></MainLayout>,
-        errorElement: <div>Page is loding</div>,
+        errorElement: <div>Page is not found</div>,
         children: [
             {
                 path: '/',
@@ -42,6 +43,10 @@ const Router = createBrowserRouter([
             {
                 path: 'trips',
                 element: <Trips></Trips>
+            },
+            {
+                path: 'booking/:id',
+                element: <PrivetRouter><BookingNow></BookingNow></PrivetRouter>
             },
         ]
     },
