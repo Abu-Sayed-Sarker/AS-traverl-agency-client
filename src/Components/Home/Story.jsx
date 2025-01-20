@@ -30,8 +30,8 @@ const Story = () => {
 
 
             <div className="mt-5 flex gap-3">
-                <Link><button className="btn bg-secondary/50 hover:bg-secondary">All Stories</button></Link>
-                <Link><button className="btn bg-secondary/50 hover:bg-secondary">Add Stories</button></Link>
+                <Link to={"/community"}><button className="btn bg-secondary/50 hover:bg-secondary">All Stories</button></Link>
+                <Link to={"/community"}><button className="btn bg-secondary/50 hover:bg-secondary">Add Stories</button></Link>
             </div>
         </div>
     );

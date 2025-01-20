@@ -14,6 +14,8 @@ import Trips from "../Pages/Main/Home/Trips";
 import BookingNow from "../Pages/Main/Home/BookingNow";
 import AddStroys from "../Pages/Dashbord/AddStroys";
 import Community from "../Pages/Main/Home/Community";
+import JoinTourGuide from "../Pages/Dashbord/JoinTourGuide";
+import AdminRouter from "./AdminRouter";
 
 
 const Router = createBrowserRouter([
@@ -63,19 +65,23 @@ const Router = createBrowserRouter([
         children: [
             {
                 path: '/dashboard',
-                element: <ManageProfile></ManageProfile>
+                element: <PrivetRouter><ManageProfile></ManageProfile></PrivetRouter>
             },
             {
                 path: '/dashboard/mybooking',
-                element: <MyBooking></MyBooking>
+                element: <PrivetRouter><MyBooking></MyBooking></PrivetRouter>
             },
             {
                 path: '/dashboard/addstorie',
-                element: <AddStroys></AddStroys>
+                element: <PrivetRouter><AddStroys></AddStroys></PrivetRouter>
+            },
+            {
+                path: '/dashboard/join-tour-guide',
+                element: <PrivetRouter><JoinTourGuide></JoinTourGuide></PrivetRouter>
             },
             {
                 path: '/dashboard/addpackage',
-                element: <AddTour></AddTour>
+                element: <AdminRouter><AddTour></AddTour></AdminRouter>
             },
         ]
     }

@@ -47,14 +47,14 @@ const ManageProfile = () => {
                 <div className="flex flex-col mt-8 gap-5">
                     <h1 className="text-3xl">Hello {user?.displayName} Welcome <span className="text-accent">AS Travel</span> agency</h1>
 
-                    <div className="w-32 lg:w-44 rounded-full overflow-hidden border-4 border-secondary">
-                        <img className="lg:w-44 w-32" src={users?.photo} alt="" />
+                    <div className="w-32 lg:w-44 lg:h-44  h-32 rounded-full overflow-hidden border-4 border-secondary">
+                        <img className="object-cover" src={users?.photo} alt="" />
                     </div>
 
                     <p className="text-2xl font-semibold">{users?.name}</p>
                     <p className="text-xl">Email: {user?.email}</p>
                     <div className="flex">
-                        <p className="py-1 px-4 rounded-full bg-primary/20 mb-4">{users.role}</p>
+                        <p className="py-1 px-4 rounded-full bg-primary/20 mb-4">{users.role === "admin" && "Admin"}{users.role === "Tourist" && "Tourist"}{users.role === "guide" && "Guide"}</p>
                     </div>
 
 
@@ -81,7 +81,7 @@ const ManageProfile = () => {
                                 </div>
 
                                 <button className="btn bg-secondary/50 hover:bg-secondary mt-3">Save</button>
-                                <Link to={"/"}><p className="btn bg-secondary/50 hover:bg-secondary mt-3 ml-5">Join as a guide</p></Link>
+                                <Link to={"/dashboard/join-tour-guide"}><p className="btn bg-secondary/50 hover:bg-secondary mt-3 ml-5">Join as a guide</p></Link>
                             </form>
                         </div>
                     </div>

@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import usePublicAxios from "../../Hooks/usePublicAxios";
 import { useState } from "react";
+import useSecureAxios from "../../Hooks/useSecureAxios";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
@@ -8,6 +9,7 @@ const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_ke
 const AddTour = () => {
     const { register, handleSubmit, reset } = useForm();
     const axiosPublic = usePublicAxios();
+    const axiosSecure = useSecureAxios()
 
 
 
@@ -73,7 +75,7 @@ const AddTour = () => {
                 tour_plane: val
             }
             // 
-            const menuRes = await axiosPublic.post('/addpackage', menuItem);
+            const menuRes = await axiosSecure.post('/addpackage', menuItem);
             console.log(menuRes.data)
             if (menuRes.data.insertedId) {
                 // show success popup
