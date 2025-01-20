@@ -18,6 +18,7 @@ import JoinTourGuide from "../Pages/Dashbord/JoinTourGuide";
 import AdminRouter from "./AdminRouter";
 import AdminProfile from "../Pages/Dashbord/Admin/AdminProfile";
 import ManageCandidates from "../Pages/Dashbord/Admin/ManageCandidates";
+import ManageUsers from "../Pages/Dashbord/Admin/ManageUsers";
 
 
 const Router = createBrowserRouter([
@@ -92,6 +93,10 @@ const Router = createBrowserRouter([
             {
                 path: '/dashboard/manage-candidates',
                 element: <AdminRouter><ManageCandidates></ManageCandidates></AdminRouter>
+            },
+            {
+                path: '/dashboard/manage-users',
+                element: <AdminRouter><ManageUsers></ManageUsers></AdminRouter>
             },
         ]
     }
