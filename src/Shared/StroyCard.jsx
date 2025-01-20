@@ -4,9 +4,11 @@ import useAuth from "../Hooks/useAuth";
 import { useEffect, useState } from "react";
 
 
-const StroyCard = () => {
+const StroyCard = ({ Storie }) => {
     const { user } = useAuth()
     const [isuser, setuser] = useState(true);
+
+    const { title, storie, images } = Storie || {}
 
     useEffect(() => {
         if (user) {
@@ -16,18 +18,17 @@ const StroyCard = () => {
     return (
         <div className="bg-secondary/20 rounded-2xl">
             <div className="p-5">
-                <div className="flex gap-4 items-center">
-                    <div className="w-10 rounded-full">
-                        <img
-                            className="w-10 rounded-full"
-                            alt="Tailwind CSS Navbar component"
-                            src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
-                    </div>
-                    <h1 className="text-xl font-semibold">Tourest Name</h1>
+                <h1 className="text-xl font-semibold">{title}</h1>
+                <div className="my-3 flex flex-wrap gap-3 justify-center">
+                    {images.map((img, i) => <div key={i} className="avatar">
+                        <div className="w-20 rounded-xl">
+                            <img src={img} />
+                        </div>
+                    </div>)}
                 </div>
                 <div>
                     <p>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, quod nobis? Amet distinctio consectetur dolores sit blanditiis voluptatem cumque, nisi totam perferendis sapiente in saepe omnis sed culpa dolorum asperiores.
+                        {storie.substring(0, 200)} ...
                     </p>
                     <div className="mt-4">
                         <FacebookShareButton url="https://example.com" disabled={isuser} quote={""}>

@@ -13,6 +13,7 @@ import PackageDatels from "../Pages/Main/Home/PackageDatels";
 import Trips from "../Pages/Main/Home/Trips";
 import BookingNow from "../Pages/Main/Home/BookingNow";
 import AddStroys from "../Pages/Dashbord/AddStroys";
+import Community from "../Pages/Main/Home/Community";
 
 
 const Router = createBrowserRouter([
@@ -44,6 +45,10 @@ const Router = createBrowserRouter([
             {
                 path: 'trips',
                 element: <Trips></Trips>
+            },
+            {
+                path: 'community',
+                element: <Community></Community>
             },
             {
                 path: 'booking/:id/:title',

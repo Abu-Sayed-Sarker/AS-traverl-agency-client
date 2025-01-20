@@ -34,7 +34,7 @@ const Navbar = () => {
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 flex gap-5 uppercase *:font-semibold">
                         <NavLink to={"/"}> <li className="hover:bg-secondary/50 rounded-md px-3 py-2">Home</li> </NavLink>
-                        <NavLink to={"/"}> <li className="hover:bg-secondary/50 rounded-md px-3 py-2">Community</li> </NavLink>
+                        <NavLink to={"/community"}> <li className="hover:bg-secondary/50 rounded-md px-3 py-2">Community</li> </NavLink>
                         <NavLink to={"/aboutus"}> <li className="hover:bg-secondary/50 rounded-md px-3 py-2">About Us</li> </NavLink>
                         <NavLink to={"/trips"}> <li className="hover:bg-secondary/50 rounded-md px-3 py-2">Trips</li> </NavLink>
                         <NavLink to={"/login"}> <li className="hover:bg-secondary/50 rounded-md px-3 py-2">Login</li> </NavLink>

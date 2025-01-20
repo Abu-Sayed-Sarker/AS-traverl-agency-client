@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import usePublicAxios from "../../Hooks/usePublicAxios";
 import useSecureAxios from "../../Hooks/useSecureAxios";
+import useAuth from "../../Hooks/useAuth";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
@@ -8,6 +9,7 @@ const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_ke
 
 const AddStroys = () => {
 
+    const { user } = useAuth();
     const axiosPublic = usePublicAxios();
     const axiosSecure = useSecureAxios();
     const { register, reset, handleSubmit } = useForm();
@@ -35,6 +37,7 @@ const AddStroys = () => {
 
         const storie = {
             title: data.title,
+            email: user.email,
             storie: data.storie,
             images: imageUrls
         }
