@@ -17,6 +17,7 @@ import Community from "../Pages/Main/Home/Community";
 import JoinTourGuide from "../Pages/Dashbord/JoinTourGuide";
 import AdminRouter from "./AdminRouter";
 import AdminProfile from "../Pages/Dashbord/Admin/AdminProfile";
+import ManageCandidates from "../Pages/Dashbord/Admin/ManageCandidates";
 
 
 const Router = createBrowserRouter([
@@ -87,6 +88,10 @@ const Router = createBrowserRouter([
             {
                 path: '/dashboard/admin',
                 element: <AdminRouter><AdminProfile></AdminProfile></AdminRouter>
+            },
+            {
+                path: '/dashboard/manage-candidates',
+                element: <AdminRouter><ManageCandidates></ManageCandidates></AdminRouter>
             },
         ]
     }

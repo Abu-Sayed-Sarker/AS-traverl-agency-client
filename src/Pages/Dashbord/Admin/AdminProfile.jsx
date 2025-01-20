@@ -28,7 +28,6 @@ const AdminProfile = () => {
         }
     })
 
-    // const tourist = data.filter(u => u.role === "Tourist");
 
     const { data: stories = [] } = useQuery({
         queryKey: ['stories'],
@@ -92,7 +91,7 @@ const AdminProfile = () => {
                     <h3 className="text-xl font-medium">Admin Information</h3>
                     <div>
                         <p className="text-lg">Total Payment :</p>
-                        <p className="text-lg">Total Tour Guides :</p>
+                        <p className="text-lg">Total Tour Guides : {data && data.filter(u => u.role === "guide").length}</p>
                         <p className="text-lg">Total Packages : {packages.length}</p>
                         <p className="text-lg">Total Clients : {data && data.filter(u => u.role === "Tourist").length}</p>
                         <p className="text-lg">Total Stories : {stories.length}</p>

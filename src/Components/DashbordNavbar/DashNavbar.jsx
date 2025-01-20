@@ -61,6 +61,7 @@ const DashNavbar = () => {
                         isAdmin && <ul className="backdrop-blur-3xl p-5 w-56">
                             <NavLink to={'/dashboard/admin'}><li className="hover:bg-secondary p-3 rounded-2xl">Manage  profile</li></NavLink>
                             <NavLink to={'/dashboard/addpackage'}><li className="hover:bg-secondary p-3 rounded-2xl">Add Packages</li></NavLink>
+                            <NavLink to={'/dashboard/manage-candidates'}><li className="hover:bg-secondary p-3 rounded-2xl">Manage candidates</li></NavLink>
                             <NavLink to={'/'}><li className="hover:bg-secondary p-3 rounded-2xl">Home</li></NavLink>
                         </ul>
                     }
