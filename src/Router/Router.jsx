@@ -12,6 +12,7 @@ import PrivetRouter from "./PrivetRouter";
 import PackageDatels from "../Pages/Main/Home/PackageDatels";
 import Trips from "../Pages/Main/Home/Trips";
 import BookingNow from "../Pages/Main/Home/BookingNow";
+import AddStroys from "../Pages/Dashbord/AddStroys";
 
 
 const Router = createBrowserRouter([
@@ -45,7 +46,7 @@ const Router = createBrowserRouter([
                 element: <Trips></Trips>
             },
             {
-                path: 'booking/:id',
+                path: 'booking/:id/:title',
                 element: <PrivetRouter><BookingNow></BookingNow></PrivetRouter>
             },
         ]
@@ -62,6 +63,10 @@ const Router = createBrowserRouter([
             {
                 path: '/dashboard/mybooking',
                 element: <MyBooking></MyBooking>
+            },
+            {
+                path: '/dashboard/addstorie',
+                element: <AddStroys></AddStroys>
             },
             {
                 path: '/dashboard/addpackage',

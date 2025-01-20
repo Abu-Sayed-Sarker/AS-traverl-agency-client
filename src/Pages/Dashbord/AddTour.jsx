@@ -64,7 +64,6 @@ const AddTour = () => {
             }
         });
         if (res.data.success) {
-            // now send the menu item data to the server with the image url
             const menuItem = {
                 title: data.title,
                 tour_type: data.tourType,

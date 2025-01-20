@@ -31,6 +31,8 @@ const DashNavbar = () => {
                     <h1 className="text-xl uppercase font-bold p-5 pb-0">AS <span className="text-primary">Travel</span></h1>
                     <ul className="backdrop-blur-3xl p-5 w-56">
                         <NavLink to={'/dashboard'}><li className="hover:bg-secondary p-3 rounded-2xl">Manage  profile</li></NavLink>
+                        <NavLink to={'/dashboard/mybooking'}><li className="hover:bg-secondary p-3 rounded-2xl">My Booking</li></NavLink>
+                        <NavLink to={'/dashboard/addstorie'}><li className="hover:bg-secondary p-3 rounded-2xl">Add Storie</li></NavLink>
                         <NavLink to={'/dashboard/addpackage'}><li className="hover:bg-secondary p-3 rounded-2xl">Add Packages</li></NavLink>
                         <NavLink to={'/'}><li className="hover:bg-secondary p-3 rounded-2xl">Home</li></NavLink>
                     </ul>

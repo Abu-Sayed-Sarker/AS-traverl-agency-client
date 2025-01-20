@@ -10,7 +10,7 @@ import { useParams } from "react-router-dom";
 
 
 const BookingNow = () => {
-    const { id } = useParams();
+    const { id, title } = useParams();
     const { user } = useAuth()
     const { register, handleSubmit, formState: { errors }, control, reset } = useForm();
     const axiosSecure = useSecureAxios()
@@ -25,19 +25,19 @@ const BookingNow = () => {
 
 
 
-
-
     const onSubmit = async (data) => {
 
 
         const Booking_Data = {
             bookingId: id,
+            packageName: title,
             name: users.name,
             photo: users.photo,
             email: users.email,
             price: data.price,
             date: data.ReactDatepicker,
-            guide: data.ReactSelect.value
+            guide: data.ReactSelect.value,
+            status: "Pending"
         }
 
         const menuRes = await axiosSecure.post('/booking', Booking_Data);
