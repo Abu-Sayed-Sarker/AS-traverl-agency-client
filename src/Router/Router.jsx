@@ -16,6 +16,7 @@ import AddStroys from "../Pages/Dashbord/AddStroys";
 import Community from "../Pages/Main/Home/Community";
 import JoinTourGuide from "../Pages/Dashbord/JoinTourGuide";
 import AdminRouter from "./AdminRouter";
+import AdminProfile from "../Pages/Dashbord/Admin/AdminProfile";
 
 
 const Router = createBrowserRouter([
@@ -64,7 +65,7 @@ const Router = createBrowserRouter([
         errorElement: <div>Dashbord in ton found</div>,
         children: [
             {
-                path: '/dashboard',
+                path: '/dashboard/user',
                 element: <PrivetRouter><ManageProfile></ManageProfile></PrivetRouter>
             },
             {
@@ -82,6 +83,10 @@ const Router = createBrowserRouter([
             {
                 path: '/dashboard/addpackage',
                 element: <AdminRouter><AddTour></AddTour></AdminRouter>
+            },
+            {
+                path: '/dashboard/admin',
+                element: <AdminRouter><AdminProfile></AdminProfile></AdminRouter>
             },
         ]
     }
