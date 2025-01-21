@@ -23,6 +23,7 @@ import GuideRouter from "./GuideRouter";
 import GuideProfile from "../Pages/Guide/GuideProfile";
 import GuideAddStories from "../Pages/Guide/GuideAddStories";
 import GuideStories from "../Pages/Main/Home/GuideStories";
+import MyAssignedTours from "../Pages/Guide/MyAssignedTours";
 
 
 const Router = createBrowserRouter([
@@ -113,6 +114,10 @@ const Router = createBrowserRouter([
             {
                 path: '/dashboard/guide-add-stories',
                 element: <GuideRouter><GuideAddStories></GuideAddStories></GuideRouter>
+            },
+            {
+                path: '/dashboard/my-assigned-tours',
+                element: <GuideRouter><MyAssignedTours></MyAssignedTours></GuideRouter>
             },
         ]
     }

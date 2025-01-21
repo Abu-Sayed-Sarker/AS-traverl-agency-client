@@ -1,18 +1,18 @@
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../Hooks/useAuth";
 import useSecureAxios from "../../Hooks/useSecureAxios";
-import BookingRow from "../../Shared/BookingRow";
+import MyAssignedTourRow from "../../Shared/MyAssignedTourRow";
 
-const MyBooking = () => {
-    const { user } = useAuth();
+const MyAssignedTours = () => {
+    const { user } = useAuth()
     const axiosSecure = useSecureAxios();
 
 
 
-    const { data: bookings = [] } = useQuery({
-        queryKey: ['bookings'],
+    const { data: orders = [], refetch } = useQuery({
+        queryKey: ['orders'],
         queryFn: async () => {
-            const res = await axiosSecure.get(`/booking/${user.email}`);
+            const res = await axiosSecure.get(`/guide-order/${user.email}`);
             return res.data;
         }
     })
@@ -25,16 +25,16 @@ const MyBooking = () => {
                 <thead>
                     <tr>
                         <th>Package</th>
-                        <th>Guide</th>
+                        <th>Tourist</th>
                         <th>Date</th>
                         <th>Price</th>
                         <th>Status</th>
-                        <th>Payment</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     {
-                        bookings.map(booking => <BookingRow key={booking._id} booking={booking}></BookingRow>)
+                        orders.map(order => <MyAssignedTourRow key={order._id} order={order} refetch={refetch}></MyAssignedTourRow>)
                     }
                 </tbody>
             </table>
@@ -42,4 +42,4 @@ const MyBooking = () => {
     );
 };
 
-export default MyBooking;
+export default MyAssignedTours;
