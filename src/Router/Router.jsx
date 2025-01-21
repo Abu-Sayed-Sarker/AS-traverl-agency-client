@@ -21,6 +21,8 @@ import ManageCandidates from "../Pages/Dashbord/Admin/ManageCandidates";
 import ManageUsers from "../Pages/Dashbord/Admin/ManageUsers";
 import GuideRouter from "./GuideRouter";
 import GuideProfile from "../Pages/Guide/GuideProfile";
+import GuideAddStories from "../Pages/Guide/GuideAddStories";
+import GuideStories from "../Pages/Main/Home/GuideStories";
 
 
 const Router = createBrowserRouter([
@@ -56,6 +58,10 @@ const Router = createBrowserRouter([
             {
                 path: 'community',
                 element: <Community></Community>
+            },
+            {
+                path: 'guide-stories',
+                element: <GuideStories></GuideStories>
             },
             {
                 path: 'booking/:id/:title',
@@ -103,6 +109,10 @@ const Router = createBrowserRouter([
             {
                 path: '/dashboard/guide-profile',
                 element: <GuideRouter><GuideProfile></GuideProfile></GuideRouter>
+            },
+            {
+                path: '/dashboard/guide-add-stories',
+                element: <GuideRouter><GuideAddStories></GuideAddStories></GuideRouter>
             },
         ]
     }

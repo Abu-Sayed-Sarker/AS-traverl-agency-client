@@ -3,6 +3,7 @@ import 'react-tabs/style/react-tabs.css';
 import usePublicAxios from "../../Hooks/usePublicAxios";
 import { useQuery } from "@tanstack/react-query";
 import PackageCard from "../../Shared/PackageCard";
+import GuideCard from "../../Shared/GuideCard";
 
 
 const TourismGuide = () => {
@@ -16,6 +17,16 @@ const TourismGuide = () => {
             return res.data;
         }
     })
+
+
+    const { data: guides = [] } = useQuery({
+        queryKey: ['guides'],
+        queryFn: async () => {
+            const res = await axiosPublic.get(`/rendom-guide`);
+            return res.data;
+        }
+    })
+
 
 
 
@@ -39,7 +50,11 @@ const TourismGuide = () => {
                         </div>
                     </TabPanel>
                     <TabPanel>
-                        <h1>guide</h1>
+                        <div className="grid mt-5 lg:grid-cols-4 gap-6 md:grid-cols-3 grid-cols-1">
+                            {
+                                guides.map(guide => <GuideCard key={guide._id} guide={guide}></GuideCard>)
+                            }
+                        </div>
                     </TabPanel>
                 </Tabs>
             </div>

@@ -10,10 +10,23 @@ import { useParams } from "react-router-dom";
 
 
 const BookingNow = () => {
-    const { id, title } = useParams();
     const { user } = useAuth()
     const { register, handleSubmit, formState: { errors }, control, reset } = useForm();
     const axiosSecure = useSecureAxios()
+    const { id, title } = useParams();
+
+
+
+    const { data: allusers = [] } = useQuery({
+        queryKey: ['allusers'],
+        queryFn: async () => {
+            const res = await axiosSecure.get(`/users`);
+            return res.data;
+        }
+    })
+
+
+
 
     const { data: users = {} } = useQuery({
         queryKey: ['users'],
@@ -91,11 +104,14 @@ const BookingNow = () => {
                                 <ReactSelect
                                     isClearable
                                     {...field}
-                                    options={[
-                                        { value: "chocolate", label: "Chocolate" },
-                                        { value: "strawberry", label: "Strawberry" },
-                                        { value: "vanilla", label: "Vanilla" }
-                                    ]}
+                                    options={
+                                        allusers
+                                            .filter(u => u.role === "guide")
+                                            .map(guide => ({
+                                                value: guide.email,
+                                                label: guide.name
+                                            }))
+                                    }
                                 />
                             )}
                         />

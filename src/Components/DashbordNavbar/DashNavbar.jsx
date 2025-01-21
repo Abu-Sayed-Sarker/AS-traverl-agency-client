@@ -69,7 +69,7 @@ const DashNavbar = () => {
                     {
                         isGuide && <ul className="backdrop-blur-3xl p-5 w-56">
                             <NavLink to={'/dashboard/guide-profile'}><li className="hover:bg-secondary p-3 rounded-2xl">Manage  profile</li></NavLink>
-                            <NavLink to={'/dashboard/addstorie'}><li className="hover:bg-secondary p-3 rounded-2xl">Add Storie</li></NavLink>
+                            <NavLink to={'/dashboard/guide-add-stories'}><li className="hover:bg-secondary p-3 rounded-2xl">Add Storie</li></NavLink>
                             <NavLink to={'/'}><li className="hover:bg-secondary p-3 rounded-2xl">Home</li></NavLink>
                         </ul>
                     }
