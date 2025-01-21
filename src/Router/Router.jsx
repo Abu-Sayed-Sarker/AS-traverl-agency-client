@@ -19,6 +19,8 @@ import AdminRouter from "./AdminRouter";
 import AdminProfile from "../Pages/Dashbord/Admin/AdminProfile";
 import ManageCandidates from "../Pages/Dashbord/Admin/ManageCandidates";
 import ManageUsers from "../Pages/Dashbord/Admin/ManageUsers";
+import GuideRouter from "./GuideRouter";
+import GuideProfile from "../Pages/Guide/GuideProfile";
 
 
 const Router = createBrowserRouter([
@@ -97,6 +99,10 @@ const Router = createBrowserRouter([
             {
                 path: '/dashboard/manage-users',
                 element: <AdminRouter><ManageUsers></ManageUsers></AdminRouter>
+            },
+            {
+                path: '/dashboard/guide-profile',
+                element: <GuideRouter><GuideProfile></GuideProfile></GuideRouter>
             },
         ]
     }
