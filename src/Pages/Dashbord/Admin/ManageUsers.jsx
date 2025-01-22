@@ -11,15 +11,21 @@ const options = [
 const ManageUsers = () => {
     const axiosSecure = useSecureAxios();
     const [selectedOption, setSelectedOption] = useState(null);
-    const [name, setName] = useState("");
+    const [name, setName] = useState('');
 
     const { data: adminUsers = [] } = useQuery({
         queryKey: ['adminUsers', name, selectedOption],
         queryFn: async () => {
-            const res = await axiosSecure.get(`/search-users?name=${encodeURIComponent(name)}&role=${selectedOption.value}`);
-            return res.data;
+            if (name || selectedOption) {
+                const res = await axiosSecure.get(`/search-users?name=${name}&role=${selectedOption.value}`);
+                return res.data;
+            } else {
+                const res = await axiosSecure.get(`/users`);
+                return res.data;
+            }
         }
     });
+    console.log(adminUsers)
 
 
 

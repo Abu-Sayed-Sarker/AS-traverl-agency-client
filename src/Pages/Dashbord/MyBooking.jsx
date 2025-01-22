@@ -4,13 +4,11 @@ import useSecureAxios from "../../Hooks/useSecureAxios";
 import BookingRow from "../../Shared/BookingRow";
 import Confetti from 'react-confetti'
 import PaginationBtn from "../../Shared/PaginationBtn";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const MyBooking = () => {
     const { user } = useAuth();
     const axiosSecure = useSecureAxios();
-    const [currentPage, setCurrentPage] = useState(0);
-    const itemsPerPage = 10;
 
     const { data: bookings = [] } = useQuery({
         queryKey: ['bookings'],
@@ -19,7 +17,11 @@ const MyBooking = () => {
             return res.data;
         }
     })
+
+
     const count = bookings.length
+    const [currentPage, setCurrentPage] = useState(0);
+    const itemsPerPage = 10;
     const { data: pbooking = [], refetch } = useQuery({
         queryKey: ['pbookings', currentPage],
         queryFn: async () => {
@@ -31,6 +33,18 @@ const MyBooking = () => {
     const numberOfPages = Math.ceil(count / itemsPerPage);
     const pages = [...Array(numberOfPages).keys()];
     const totelpage = pages.length
+
+
+
+    const [isActive, setIsActive] = useState(true);
+
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            setIsActive(false);
+        }, 5000);
+
+        return () => clearTimeout(timeout);
+    }, []);
 
 
 
@@ -57,7 +71,7 @@ const MyBooking = () => {
                 </tbody>
             </table>
             <div>
-                {bookings.length >= 3 && <Confetti
+                {bookings.length >= 3 && isActive && <Confetti tweenDuration={5000}
                 />}
             </div>
             <PaginationBtn currentPage={currentPage} totelPage={totelpage} refetch={refetch} setCurrentPage={setCurrentPage}> </PaginationBtn>

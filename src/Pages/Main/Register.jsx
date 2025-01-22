@@ -24,7 +24,6 @@ const Register = () => {
                 console.log(loggedUser);
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
-                        // create user entry in the database
                         const userInfo = {
                             name: data.name,
                             email: data.email,
@@ -103,9 +102,6 @@ const Register = () => {
                         {errors.password?.type === 'minLength' && <p className="text-red-600">Password must be 6 characters</p>}
                         {errors.password?.type === 'maxLength' && <p className="text-red-600">Password must be less than 20 characters</p>}
                         {errors.password?.type === 'pattern' && <p className="text-red-600">Password must have one Uppercase one lower case, one number and one special character.</p>}
-                        <label className="label">
-                            <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                        </label>
                     </div>
                     <div className="form-control mt-6">
                         <input className="btn bg-secondary/50 hover:bg-secondary" type="submit" value="Sign Up" />
