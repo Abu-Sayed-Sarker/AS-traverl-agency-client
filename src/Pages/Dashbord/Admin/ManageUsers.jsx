@@ -20,7 +20,8 @@ const ManageUsers = () => {
             return res.data;
         }
     });
-    console.log(adminUsers)
+
+
 
     return (
         <div>

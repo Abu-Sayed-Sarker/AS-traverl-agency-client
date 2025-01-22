@@ -3,16 +3,27 @@ import { Link, useParams } from "react-router-dom";
 import usePublicAxios from "../../../Hooks/usePublicAxios";
 import { MdTour } from "react-icons/md";
 import { TbCoinTakaFilled } from "react-icons/tb";
+import useSecureAxios from "../../../Hooks/useSecureAxios";
 
 const PackageDatels = () => {
     const { id } = useParams();
     const axiosPublic = usePublicAxios();
+    const axiosSecure = useSecureAxios();
 
     const { data: pack = {} } = useQuery({
         queryKey: ['pack'],
         queryFn: async () => {
             const res = await axiosPublic.get(`/package/${id}`)
             return res.data
+        }
+    })
+
+
+    const { data: allusers = [] } = useQuery({
+        queryKey: ['allusers'],
+        queryFn: async () => {
+            const res = await axiosSecure.get(`/users`);
+            return res.data;
         }
     })
 
@@ -44,84 +55,25 @@ const PackageDatels = () => {
                         {/* starte */}
 
                         <div className="carousel carousel-vertical rounded-box h-60 w-full">
-                            <div className="carousel-item *:ml-5 *:mt-5">
-                                <div className="flex items-center gap-5">
-                                    <div className="avatar">
-                                        <div className="ring-primary ring-offset-base-100 w-8 rounded-full ring ring-offset-2">
-                                            <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+
+                            {
+                                allusers
+                                    .filter(u => u.role === "guide")
+                                    .map((guide, i) => <div key={i} className="carousel-item *:ml-5 *:mt-5">
+                                        <div className="flex items-center gap-5">
+                                            <div className="avatar">
+                                                <div className="ring-primary ring-offset-base-100 w-8 rounded-full ring ring-offset-2">
+                                                    <img src={guide?.photo} />
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h1 className="text-xl font-semibold">{guide?.name}</h1>
+                                                <p>{guide?.email}</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div>
-                                        <h1 className="text-xl font-semibold">NAme oF guide</h1>
-                                        <p>ashsabd56564@gaail.com</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="carousel-item *:ml-5 *:mt-5">
-                                <div className="flex items-center gap-5">
-                                    <div className="avatar">
-                                        <div className="ring-primary ring-offset-base-100 w-8 rounded-full ring ring-offset-2">
-                                            <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <h1 className="text-xl font-semibold">NAme oF guide</h1>
-                                        <p>ashsabd56564@gaail.com</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="carousel-item *:ml-5 *:mt-5">
-                                <div className="flex items-center gap-5">
-                                    <div className="avatar">
-                                        <div className="ring-primary ring-offset-base-100 w-8 rounded-full ring ring-offset-2">
-                                            <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <h1 className="text-xl font-semibold">NAme oF guide</h1>
-                                        <p>ashsabd56564@gaail.com</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="carousel-item *:ml-5 *:mt-5">
-                                <div className="flex items-center gap-5">
-                                    <div className="avatar">
-                                        <div className="ring-primary ring-offset-base-100 w-8 rounded-full ring ring-offset-2">
-                                            <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <h1 className="text-xl font-semibold">NAme oF guide</h1>
-                                        <p>ashsabd56564@gaail.com</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="carousel-item *:ml-5 *:mt-5">
-                                <div className="flex items-center gap-5">
-                                    <div className="avatar">
-                                        <div className="ring-primary ring-offset-base-100 w-8 rounded-full ring ring-offset-2">
-                                            <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <h1 className="text-xl font-semibold">NAme oF guide</h1>
-                                        <p>ashsabd56564@gaail.com</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="carousel-item *:ml-5 *:mt-5">
-                                <div className="flex items-center gap-5">
-                                    <div className="avatar">
-                                        <div className="ring-primary ring-offset-base-100 w-8 rounded-full ring ring-offset-2">
-                                            <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <h1 className="text-xl font-semibold">NAme oF guide</h1>
-                                        <p>ashsabd56564@gaail.com</p>
-                                    </div>
-                                </div>
-                            </div>
+                                    </div>)
+                            }
+
                         </div>
 
                         {/* end  */}

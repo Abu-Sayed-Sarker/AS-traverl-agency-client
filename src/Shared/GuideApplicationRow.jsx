@@ -38,7 +38,7 @@ const GuideApplicationRow = ({ guide, refetch }) => {
                 </div>
             </div></td>
             <td>{name}</td>
-            <td>{detals.substring(0, 30)} ...</td>
+            <td>{detals && detals.substring(0, 30)} ...</td>
             <td><a className="text-blue-600 underline" href={cv_link}>CV Link</a></td>
             <td className="flex items-center gap-3">
                 <button onClick={() => addGuide(email, _id)} className="text-xl"><FaCheck /></button>

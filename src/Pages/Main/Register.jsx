@@ -36,7 +36,7 @@ const Register = () => {
                                 if (res.data.insertedId) {
                                     reset();
                                     toast.success("User register successfully.")
-                                    navigate(location.state.from.pathnam || '/')
+                                    navigate(location.state.from.pathname)
                                 }
                             })
 
@@ -59,7 +59,7 @@ const Register = () => {
                 axiosPublic.post('/users', userInfo)
                     .then(res => {
                         console.log(res.data);
-                        navigate(location.state.from.pathnam || '/')
+                        navigate(location.state.from.pathname)
                     })
             })
     }

@@ -31,7 +31,7 @@ const StroyCard = ({ Storie }) => {
                         {storie.substring(0, 200)} ...
                     </p>
                     <div className="mt-4">
-                        <FacebookShareButton url="https://example.com" disabled={isuser} quote={""}>
+                        <FacebookShareButton url="http://localhost:5173/" disabled={isuser} quote={""}>
                             <p className="flex items-center gap-2 border border-secondary px-2 rounded-full">
                                 Share on Facbook  <CiShare2 />
                             </p>

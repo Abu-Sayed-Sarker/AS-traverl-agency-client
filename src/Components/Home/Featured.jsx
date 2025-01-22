@@ -24,6 +24,9 @@ const Featured = () => {
                     <GiHamburgerMenu className="text-6xl" />
                     <p className="text-xl">Travel Guidelines</p>
                 </div>
+
+
+
             </div>
 
         </div>

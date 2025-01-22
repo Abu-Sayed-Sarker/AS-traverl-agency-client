@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
+import logo from '../../assets/logo.png'
 
 const Navbar = () => {
     const { user, logOut } = useAuth();
@@ -29,7 +30,7 @@ const Navbar = () => {
 
                         </ul>
                     </div>
-                    <NavLink to={"/"}><h1 className="text-xl uppercase font-bold">AS <span className="text-primary">Travel</span></h1></NavLink>
+                    <NavLink to={"/"}><h1 className="text-xl uppercase font-bold p-5 pb-0 flex items-center"><img className="w-14" src={logo} alt="" />AS <span className="text-primary">Travel</span></h1></NavLink>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 flex gap-5 uppercase *:font-semibold">

@@ -43,8 +43,15 @@ const AdminProfile = () => {
             return res.data;
         }
     })
+    const { data: payments = [] } = useQuery({
+        queryKey: ['paments'],
+        queryFn: async () => {
+            const res = await axiosSecure.get(`/payments`);
+            return res.data;
+        }
+    })
 
-
+    const totalPrice = payments.reduce((total, item) => total + item.price, 0)
 
 
     const onSubmit = data => {
@@ -90,7 +97,7 @@ const AdminProfile = () => {
                 <div className="my-4">
                     <h3 className="text-xl font-medium">Admin Information</h3>
                     <div>
-                        <p className="text-lg">Total Payment :</p>
+                        <p className="text-lg">Total Payment : {totalPrice} Taka</p>
                         <p className="text-lg">Total Tour Guides : {data && data.filter(u => u.role === "guide").length}</p>
                         <p className="text-lg">Total Packages : {packages.length}</p>
                         <p className="text-lg">Total Clients : {data && data.filter(u => u.role === "Tourist").length}</p>

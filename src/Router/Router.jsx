@@ -24,13 +24,15 @@ import GuideProfile from "../Pages/Guide/GuideProfile";
 import GuideAddStories from "../Pages/Guide/GuideAddStories";
 import GuideStories from "../Pages/Main/Home/GuideStories";
 import MyAssignedTours from "../Pages/Guide/MyAssignedTours";
+import PayNow from "../Pages/Dashbord/Payment/PayNow";
+import ErrorPage from "../Components/ErrorPage";
 
 
 const Router = createBrowserRouter([
     {
         path: '/',
         element: <MainLayout></MainLayout>,
-        errorElement: <div>Page is not found</div>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
@@ -73,7 +75,7 @@ const Router = createBrowserRouter([
     {
         path: '/dashboard',
         element: <Dashboard></Dashboard>,
-        errorElement: <div>Dashbord in ton found</div>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/dashboard/user',
@@ -118,6 +120,10 @@ const Router = createBrowserRouter([
             {
                 path: '/dashboard/my-assigned-tours',
                 element: <GuideRouter><MyAssignedTours></MyAssignedTours></GuideRouter>
+            },
+            {
+                path: '/dashboard/payment/:id',
+                element: <PrivetRouter><PayNow></PayNow></PrivetRouter>
             },
         ]
     }

@@ -4,6 +4,7 @@ import useAuth from "../../Hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import useSecureAxios from "../../Hooks/useSecureAxios";
 import useGuide from "../../Hooks/useGuide";
+import logo from '../../assets/logo.png'
 
 const DashNavbar = () => {
     const { isAdmin } = useAdmin();
@@ -27,7 +28,7 @@ const DashNavbar = () => {
                 <div className="drawer-content flex justify-between lg:hidden">
                     {/* Page content here */}
                     <div>
-                        as-traverl
+                        <h1 className="text-xl uppercase font-bold p-5 pb-0 flex items-center"><img className="w-14" src={logo} alt="" />AS <span className="text-primary">Travel</span></h1>
                     </div>
                     <label htmlFor="my-drawer-2" className="lg:hidden">
                         <svg
@@ -47,7 +48,7 @@ const DashNavbar = () => {
 
                 <div className="drawer-side bg-secondary/20 rounded-tl-3xl">
                     <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
-                    <h1 className="text-xl uppercase font-bold p-5 pb-0">AS <span className="text-primary">Travel</span></h1>
+                    <h1 className="text-xl uppercase font-bold p-5 pb-0 flex items-center"><img className="w-14" src={logo} alt="" />AS <span className="text-primary">Travel</span></h1>
                     {
                         users.role === "Tourist" && <ul className="backdrop-blur-3xl p-5 w-56">
                             <NavLink to={'/dashboard/user'}><li className="hover:bg-secondary p-3 rounded-2xl">Manage  profile</li></NavLink>

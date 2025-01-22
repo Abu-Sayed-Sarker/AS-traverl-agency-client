@@ -15,6 +15,7 @@ const Login = () => {
     const location = useLocation()
 
 
+
     const handleLoginSubmission = e => {
         e.preventDefault()
         const form = new FormData(e.target);
@@ -28,7 +29,7 @@ const Login = () => {
                 setUser(user)
                 e.target.reset();
                 toast.success("Log In Success");
-                navigate(location.state.from.pathnam || '/')
+                navigate(location.state.from.pathname)
 
             })
             .catch((error) => {
@@ -56,7 +57,7 @@ const Login = () => {
                 axiosPublic.post('/users', userInfo)
                     .then(res => {
                         console.log(res.data);
-                        navigate(location.state.from.pathnam || '/')
+                        navigate(location.state.from.pathname)
                     })
             })
     }
