@@ -1,6 +1,7 @@
 import { Navigate, useLocation } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
 import useGuide from "../Hooks/useGuide";
+import Loder from "../Shared/Loder";
 
 const GuideRouter = ({ children }) => {
   const { user, loading } = useAuth();
@@ -8,7 +9,7 @@ const GuideRouter = ({ children }) => {
   const location = useLocation();
 
   if (loading || isGuideLoading) {
-    return <progress className="progress w-56"></progress>;
+    return <Loder></Loder>;
   }
 
   if (user && isGuide) {

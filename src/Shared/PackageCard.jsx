@@ -5,11 +5,12 @@ const PackageCard = ({ pack }) => {
     return (
         <div>
             <div className="card card-compact bg-base-100 shadow-xl">
-                <figure className="h-52">
+                <div className="h-52 overflow-hidden">
                     <img
+                        className="object-cover w-full rounded-t-3xl"
                         src={image[0]}
                         alt="Shoes" />
-                </figure>
+                </div>
                 <div className="card-body">
                     <h2 className="card-title">{title}</h2>
                     <div className="flex justify-between">

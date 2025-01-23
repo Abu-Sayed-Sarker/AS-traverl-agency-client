@@ -22,6 +22,7 @@ const MyAssignedTourRow = ({ order, refetch }) => {
                 console.log(res.data);
                 refetch()
             })
+        document.getElementById('my_modal_3').closeModal();
     }
 
 
@@ -40,12 +41,21 @@ const MyAssignedTourRow = ({ order, refetch }) => {
                     <FaCheck />
                 </button>
                 <button
-                    onClick={() => rejecteddTour(_id)}
+                    onClick={() => document.getElementById('my_modal_3').showModal()}
                     disabled={status === "In-review" || status === "Accepted" || status === "Rejected"}
                     className="text-2xl font-extrabold disabled:cursor-not-allowed"
                 >
                     <IoCloseSharp />
                 </button>
+                <dialog id="my_modal_3" className="modal">
+                    <div className="modal-box">
+                        <form method="dialog">
+                            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                        </form>
+                        <h3 className="font-bold text-lg">Are you sure!</h3>
+                        <button onClick={() => rejecteddTour(_id)}>Yes</button>
+                    </div>
+                </dialog>
             </td>
         </tr>
     );

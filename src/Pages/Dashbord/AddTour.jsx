@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import usePublicAxios from "../../Hooks/usePublicAxios";
 import { useState } from "react";
 import useSecureAxios from "../../Hooks/useSecureAxios";
+import toast from "react-hot-toast";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
@@ -77,6 +78,7 @@ const AddTour = () => {
             // 
             const menuRes = await axiosSecure.post('/addpackage', menuItem);
             console.log(menuRes.data)
+            toast.success("Toure package is added")
             if (menuRes.data.insertedId) {
                 // show success popup
                 reset();

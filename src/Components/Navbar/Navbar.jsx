@@ -26,7 +26,12 @@ const Navbar = () => {
                         <ul
                             tabIndex={0}
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                            <NavLink to={"/"}>Home</NavLink>
+                            <NavLink to={"/"}> <li className="hover:bg-secondary/50 rounded-md px-3 py-2">Home</li> </NavLink>
+                            <NavLink to={"/community"}> <li className="hover:bg-secondary/50 rounded-md px-3 py-2">Community</li> </NavLink>
+                            <NavLink to={"/aboutus"}> <li className="hover:bg-secondary/50 rounded-md px-3 py-2">About Us</li> </NavLink>
+                            <NavLink to={"/trips"}> <li className="hover:bg-secondary/50 rounded-md px-3 py-2">Trips</li> </NavLink>
+                            <NavLink to={"/guide-stories"}> <li className="hover:bg-secondary/50 rounded-md px-3 py-2">Guide Stories</li> </NavLink>
+                            {!user && <NavLink to={"/login"}> <li className="hover:bg-secondary/50 rounded-md px-3 py-2">Login</li> </NavLink>}
 
                         </ul>
                     </div>
