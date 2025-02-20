@@ -12,7 +12,7 @@ const PackageCard = ({ pack }) => {
                         alt="Shoes" />
                 </div>
                 <div className="card-body">
-                    <h2 className="card-title">{title.substring(0, 40)} ...</h2>
+                    <h2 className="card-title">{title.substring(0, 30)}...</h2>
                     <p className="">{datails.substring(0, 150)} ...</p>
                     <div className="flex justify-between">
                         <p className="">{tour_type}</p>
