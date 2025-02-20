@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const PackageCard = ({ pack }) => {
-    const { image, title, tour_type, price, _id } = pack || {}
+    const { image, title, tour_type, price, _id, datails } = pack || {}
     return (
         <div>
             <div className="card card-compact bg-base-100 shadow-xl">
@@ -12,7 +12,8 @@ const PackageCard = ({ pack }) => {
                         alt="Shoes" />
                 </div>
                 <div className="card-body">
-                    <h2 className="card-title">{title}</h2>
+                    <h2 className="card-title">{title.substring(0, 40)} ...</h2>
+                    <p className="">{datails.substring(0, 150)} ...</p>
                     <div className="flex justify-between">
                         <p className="">{tour_type}</p>
                         <p className="">{price} Taka</p>

@@ -1,5 +1,6 @@
 import { FaLongArrowAltRight } from 'react-icons/fa';
 import bannerImg from '../../assets/banner.png'
+import { Link } from 'react-router-dom';
 const Banner = () => {
     return (
         <div
@@ -14,7 +15,7 @@ const Banner = () => {
                         Best Travel Agent
                         in Asia
                     </h1>
-                    <button className='flex items-center gap-2 px-5 rounded-3xl py-2 bg-secondary mt-4'>Learn more  <FaLongArrowAltRight className='mt-1' /></button>
+                    <Link to={"/aboutus"}><button className='flex items-center gap-2 px-5 rounded-3xl py-2 bg-secondary mt-4'>Learn more  <FaLongArrowAltRight className='mt-1' /></button></Link>
                 </div>
             </div>
 
