@@ -4,7 +4,6 @@ import Dashboard from "../Layouts/Dashboard";
 import Login from "../Pages/Main/Login";
 import Register from "../Pages/Main/Register";
 import Home from "../Pages/Main/Home/Home";
-import ManageProfile from "../Pages/Dashbord/ManageProfile";
 import MyBooking from "../Pages/Dashbord/MyBooking";
 import AddTour from "../Pages/Dashbord/AddTour";
 import AboutUs from "../Pages/Main/About/AboutUs";
@@ -16,16 +15,16 @@ import AddStroys from "../Pages/Dashbord/AddStroys";
 import Community from "../Pages/Main/Home/Community";
 import JoinTourGuide from "../Pages/Dashbord/JoinTourGuide";
 import AdminRouter from "./AdminRouter";
-import AdminProfile from "../Pages/Dashbord/Admin/AdminProfile";
 import ManageCandidates from "../Pages/Dashbord/Admin/ManageCandidates";
 import ManageUsers from "../Pages/Dashbord/Admin/ManageUsers";
 import GuideRouter from "./GuideRouter";
-import GuideProfile from "../Pages/Guide/GuideProfile";
 import GuideAddStories from "../Pages/Guide/GuideAddStories";
 import GuideStories from "../Pages/Main/Home/GuideStories";
 import MyAssignedTours from "../Pages/Guide/MyAssignedTours";
 import PayNow from "../Pages/Dashbord/Payment/PayNow";
 import ErrorPage from "../Components/ErrorPage";
+import ManageProfileAll from "../Pages/Dashbord/Manageprofile/ManageProfileAll";
+
 
 
 const Router = createBrowserRouter([
@@ -78,8 +77,8 @@ const Router = createBrowserRouter([
         errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
-                path: '/dashboard/user',
-                element: <PrivetRouter><ManageProfile></ManageProfile></PrivetRouter>
+                path: '/dashboard',
+                element: <ManageProfileAll></ManageProfileAll>
             },
             {
                 path: '/dashboard/mybooking',
@@ -98,20 +97,12 @@ const Router = createBrowserRouter([
                 element: <AdminRouter><AddTour></AddTour></AdminRouter>
             },
             {
-                path: '/dashboard/admin',
-                element: <AdminRouter><AdminProfile></AdminProfile></AdminRouter>
-            },
-            {
                 path: '/dashboard/manage-candidates',
                 element: <AdminRouter><ManageCandidates></ManageCandidates></AdminRouter>
             },
             {
                 path: '/dashboard/manage-users',
                 element: <AdminRouter><ManageUsers></ManageUsers></AdminRouter>
-            },
-            {
-                path: '/dashboard/guide-profile',
-                element: <GuideRouter><GuideProfile></GuideProfile></GuideRouter>
             },
             {
                 path: '/dashboard/guide-add-stories',

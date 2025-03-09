@@ -13,7 +13,7 @@ const AdminProfile = () => {
 
 
 
-    const { data: users = {} } = useQuery({
+    const { data: users = {}, refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
             const res = await axiosSecure.get(`/users/${user.email}`);
@@ -55,19 +55,22 @@ const AdminProfile = () => {
 
 
     const onSubmit = data => {
-        updateUserProfile(data.name || users.name, data.photoURL || users.photo)
+        const updatedName = data.name || users.name;
+        const updatedPhoto = data.photoURL || users.photo;
+        updateUserProfile(updatedName, updatedPhoto)
             .then(() => {
                 // create user entry in the database
                 const userInfo = {
-                    name: data.name || users.name,
+                    name: updatedName,
                     email: users.email,
-                    photo: data.photoURL || users.photo,
+                    photo: updatedPhoto,
                     role: users.role
                 }
                 axiosSecure.put(`/users/${user.email}`, userInfo)
                     .then(res => {
-                        if (res.data.insertedId) {
+                        if (res.data.acknowledged) {
                             toast.success("Profile update successfully.")
+                            refetch();
                         }
                     })
 

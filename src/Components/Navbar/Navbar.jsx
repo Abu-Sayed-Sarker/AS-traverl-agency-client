@@ -1,6 +1,8 @@
 import { NavLink } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import logo from '../../assets/logo.png'
+import { FaRegUserCircle } from "react-icons/fa";
+
 
 const Navbar = () => {
     const { user, logOut } = useAuth();
@@ -51,10 +53,12 @@ const Navbar = () => {
                     <div className="dropdown dropdown-end">
                         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                             <div className="w-10 rounded-full bg-white">
-                                <img
-                                    referrerPolicy="no referrer"
-                                    alt="Tailwind CSS Navbar component"
-                                    src={user?.photoURL} />
+                                {
+                                    user ? <img
+                                        referrerPolicy="no referrer"
+                                        alt="Tailwind CSS Navbar component"
+                                        src={user?.photoURL} /> : <FaRegUserCircle className="text-center text-[40px]" />
+                                }
                             </div>
                         </div>
                         {user && <ul
